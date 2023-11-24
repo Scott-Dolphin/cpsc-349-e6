@@ -1,0 +1,16 @@
+Questions
+
+1. What were some of the challenges you encountered?
+    - During the tutorial I accidently cloned the finished product at the top of the page instead of the starter code. 
+      After switching codebases in the same repository, I had issues running npm start.
+        - Fixed by deleting repository and starting a new one and re-running npm install
+
+    - Ran into an error "useState" is not defined
+        - Resolved by changing "import { useState } from 'react';" to "import React, { useEffect, useState } from "react";" in App.js
+
+
+2. Differentiate between Real DOM and Virtual DOM. List out a few differences.
+
+
+3. What are some problems that React can solve for us?
+
