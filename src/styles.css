@@ -1,6 +1,5 @@
-* {
-  box-sizing: border-box;
-}
+@import url('https://unpkg.com/98.css');
+
 
 body {
   font-family: sans-serif;
@@ -87,4 +86,37 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+a {
+  font-family: sans-serif;
+}
+
+/* Styles from calculator project */
+body {
+  background-color: darkcyan;
+}
+
+.screen {
+  height: 2em;
+}
+
+.window {
+  margin: auto;
+  margin-top: 100px;
+  width: 365px;
+}
+.window .screen {
+  padding: 5px;
+  background-color: white;
+  text-align: right;
+}
+.window table {
+  background-color: rgba(250, 235, 215, 0);
+}
+.window .number {
+  color: blue;
+}
+.window .operator {
+  color: red;
 }

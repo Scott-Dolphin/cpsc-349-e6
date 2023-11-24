@@ -89,6 +89,7 @@ export default function Game() {
   });
 
   return (
+    <>
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
@@ -97,6 +98,46 @@ export default function Game() {
         <ol>{moves}</ol>
       </div>
     </div>
+
+    <hr></hr>
+    <div className="window">
+    <div className="title-bar">
+      <div className="title-bar-text">Calculator.js</div>
+      <div className="title-bar-controls">
+        <button aria-label="Close" onclick="hi_professor()"></button>
+      </div>
+    </div>
+    <div className="window-body">
+      <p className="screen" id="result"></p>
+      <table>
+        <tr>
+          <td><button className="number">7</button></td>
+          <td><button className="number">8</button></td>
+          <td><button className="number">9</button></td>
+          <td><button className="operator">+</button></td>
+        </tr>
+        <tr>
+          <td><button className="number">4</button></td>
+          <td><button className="number">5</button></td>
+          <td><button className="number">6</button></td>
+          <td><button className="operator">-</button></td>
+        </tr>
+        <tr>
+          <td><button className="number">1</button></td>
+          <td><button className="number">2</button></td>
+          <td><button className="number">3</button></td>
+          <td><button className="operator">x</button></td>
+        </tr>
+        <tr>
+          <td><button className="operator">C</button></td>
+          <td><button className="number">0</button></td>
+          <td><button className="operator">=</button></td>
+          <td><button className="operator">÷</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+    </>
   );
 }
 
