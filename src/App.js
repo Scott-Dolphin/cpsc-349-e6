@@ -8,7 +8,7 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-function Board({xIsNext, squares, onPlay}) {
+function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       return;
@@ -58,7 +58,7 @@ export default function Game() {
 
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
-  const xIsNext = currentMove % 2 ===0;
+  const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
   function jumpTo(nextMove) {
@@ -90,53 +90,64 @@ export default function Game() {
 
   return (
     <>
-    <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
+      <div classname="window">
+        <div className="title-bar">
+          <div className="title-bar-text">tic tac toe.js</div>
+          <div className="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div className="window-body">
+          <div className="game">
+            <div className="game-board">
+              <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+            </div>
+            <div className="game-info">
+              <ol>{moves}</ol>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
-      </div>
-    </div>
+      <br></br>
+      <hr></hr>
 
-    <hr></hr>
-    <div className="window">
-    <div className="title-bar">
-      <div className="title-bar-text">Calculator.js</div>
-      <div className="title-bar-controls">
-        <button aria-label="Close" onclick="hi_professor()"></button>
+      <div className="window">
+        <div className="title-bar">
+          <div className="title-bar-text">Calculator.js</div>
+          <div className="title-bar-controls">
+            <button aria-label="Close" onclick="hi_professor()"></button>
+          </div>
+        </div>
+        <div className="window-body">
+          <p className="screen" id="result"></p>
+          <table>
+            <tr>
+              <td><button className="number">7</button></td>
+              <td><button className="number">8</button></td>
+              <td><button className="number">9</button></td>
+              <td><button className="operator">+</button></td>
+            </tr>
+            <tr>
+              <td><button className="number">4</button></td>
+              <td><button className="number">5</button></td>
+              <td><button className="number">6</button></td>
+              <td><button className="operator">-</button></td>
+            </tr>
+            <tr>
+              <td><button className="number">1</button></td>
+              <td><button className="number">2</button></td>
+              <td><button className="number">3</button></td>
+              <td><button className="operator">x</button></td>
+            </tr>
+            <tr>
+              <td><button className="operator">C</button></td>
+              <td><button className="number">0</button></td>
+              <td><button className="operator">=</button></td>
+              <td><button className="operator">÷</button></td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    <div className="window-body">
-      <p className="screen" id="result"></p>
-      <table>
-        <tr>
-          <td><button className="number">7</button></td>
-          <td><button className="number">8</button></td>
-          <td><button className="number">9</button></td>
-          <td><button className="operator">+</button></td>
-        </tr>
-        <tr>
-          <td><button className="number">4</button></td>
-          <td><button className="number">5</button></td>
-          <td><button className="number">6</button></td>
-          <td><button className="operator">-</button></td>
-        </tr>
-        <tr>
-          <td><button className="number">1</button></td>
-          <td><button className="number">2</button></td>
-          <td><button className="number">3</button></td>
-          <td><button className="operator">x</button></td>
-        </tr>
-        <tr>
-          <td><button className="operator">C</button></td>
-          <td><button className="number">0</button></td>
-          <td><button className="operator">=</button></td>
-          <td><button className="operator">÷</button></td>
-        </tr>
-      </table>
-    </div>
-  </div>
     </>
   );
 }
