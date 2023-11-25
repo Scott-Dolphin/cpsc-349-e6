@@ -1,3 +1,5 @@
+URL: 
+
 Questions
 
 1. What were some of the challenges you encountered?
@@ -16,4 +18,7 @@ Questions
 
 
 3. What are some problems that React can solve for us?
+  - Solves performance issues
+  - Allows for easier modularity
+  - Allows for easier bug fixing and further expandibility
 
