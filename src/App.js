@@ -88,9 +88,83 @@ export default function Game() {
     );
   });
 
+  // Calculator functions
+  let num1 = 0;
+  let num2 = 0;
+  let currentOperator = "";
+  let pendingOperator = false;
+
+  function printNumber(number) {
+    if (pendingOperator) {
+      clearScreen();
+      document.getElementById("result").innerText += number
+      return 0;
+    }
+    document.getElementById("result").innerText += number;
+
+  }
+
+  function getOperator(operator) {
+    num1 = document.getElementById("result").innerText;
+    console.log("operator: " + operator);
+    console.log("number: " + num1);
+
+    currentOperator = operator;
+    pendingOperator = true;
+  }
+
+  function evaluate(operator) {
+    num2 = document.getElementById("result").innerText;
+    console.log("num1: " + num1);
+    console.log("num2: " + num2);
+    let ans = 0;
+
+    switch (operator) {
+
+      case "+":
+        clearScreen();
+        ans = parseInt(num1) + parseInt(num2);
+        document.getElementById("result").innerText = ans;
+        num1 = ans;
+        break;
+      case "-":
+        clearScreen();
+        ans = parseInt(num1) - parseInt(num2);
+        document.getElementById("result").innerText = ans;
+        num1 = ans;
+        break;
+      case "*":
+        clearScreen();
+        ans = parseInt(num1) * parseInt(num2);
+        document.getElementById("result").innerText = ans;
+        num1 = ans;
+        break;
+      case "÷":
+        clearScreen();
+        ans = parseInt(num1) / parseInt(num2);
+        document.getElementById("result").innerText = ans;
+        num1 = ans;
+
+        break;
+    }
+
+  }
+
+  function clear() {
+    clearScreen();
+    num1 = 0;
+    num2 = 0;
+    pendingOperator = false;
+  }
+
+  function clearScreen() {
+    document.getElementById("result").innerText = "";
+  }
+
+
   return (
     <>
-      <div classname="window">
+      <div className="window">
         <div className="title-bar">
           <div className="title-bar-text">tic tac toe.js</div>
           <div className="title-bar-controls">
@@ -109,41 +183,41 @@ export default function Game() {
         </div>
       </div>
       <br></br>
-      <hr></hr>
+
 
       <div className="window">
         <div className="title-bar">
           <div className="title-bar-text">Calculator.js</div>
           <div className="title-bar-controls">
-            <button aria-label="Close" onclick="hi_professor()"></button>
+            <button aria-label="Close"></button>
           </div>
         </div>
         <div className="window-body">
           <p className="screen" id="result"></p>
           <table>
             <tr>
-              <td><button className="number">7</button></td>
-              <td><button className="number">8</button></td>
-              <td><button className="number">9</button></td>
-              <td><button className="operator">+</button></td>
+              <td><button className="number" onClick={() => printNumber(7)}>7</button></td>
+              <td><button className="number" onClick={() => printNumber(8)}>8</button></td>
+              <td><button className="number" onClick={() => printNumber(9)}>9</button></td>
+              <td><button className="operator" onClick={() => getOperator('+')}>+</button></td>
             </tr>
             <tr>
-              <td><button className="number">4</button></td>
-              <td><button className="number">5</button></td>
-              <td><button className="number">6</button></td>
-              <td><button className="operator">-</button></td>
+              <td><button className="number" onClick={() => printNumber(4)}>4</button></td>
+              <td><button className="number" onClick={() => printNumber(5)}>5</button></td>
+              <td><button className="number" onClick={() => printNumber(6)}>6</button></td>
+              <td><button className="operator" onClick={() => getOperator('-')}>-</button></td>
             </tr>
             <tr>
-              <td><button className="number">1</button></td>
-              <td><button className="number">2</button></td>
-              <td><button className="number">3</button></td>
-              <td><button className="operator">x</button></td>
+              <td><button className="number" onClick={() => printNumber(1)}>1</button></td>
+              <td><button className="number" onClick={() => printNumber(2)}>2</button></td>
+              <td><button className="number" onClick={() => printNumber(3)}>3</button></td>
+              <td><button className="operator" onClick={() => getOperator('*')}>x</button></td>
             </tr>
             <tr>
-              <td><button className="operator">C</button></td>
-              <td><button className="number">0</button></td>
-              <td><button className="operator">=</button></td>
-              <td><button className="operator">÷</button></td>
+              <td><button className="operator " onClick={() => clear()}>C</button></td>
+              <td><button className="number" onClick={() => printNumber(0)}>0</button></td>
+              <td><button className="operator" onClick={() => evaluate(currentOperator)}>=</button></td>
+              <td><button className="operator" onClick={() => getOperator('/')}>÷</button></td>
             </tr>
           </table>
         </div>
