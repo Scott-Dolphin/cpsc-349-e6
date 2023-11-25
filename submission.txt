@@ -1,4 +1,5 @@
-URL: 
+URL: https://scott-dolphin-cpsc349-exercise6.netlify.app/
+repository: https://github.com/Scott-Dolphin/cpsc-349-e6
 
 Questions
 
